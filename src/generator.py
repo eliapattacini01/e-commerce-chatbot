@@ -12,7 +12,7 @@ def generate_answer(question,relFAQ,distances):
     if min(distances)>1.5:
         prompt = "You are a FAQ chatbot with the task to give relevant answers to the customer, you must tell the customer there are no relevant information about his answer in your FAQ"
     else:
-        prompt = "You are a FAQ chatbot with the task to give relevant answers to the customer, you should use the relevant FAQ and the distance provided to give the answer, ask at the end if the user has any other question"
+        prompt = "You are a helpful and polite customer support agent. Your task is to provide accurate, concise answers based *only* on the provided context below. RULES Keep answers concise (3-7 sentences) and user-friendly. "
     relFAQ_text = "\n".join(relFAQ)
     context = f"""
     {prompt}
