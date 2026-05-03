@@ -1,9 +1,17 @@
 import vertexai
 from vertexai.generative_models import GenerativeModel
-vertexai.init(
-project = "chatbot-ecom-494513",
-location = "us-central1"
+from google.oauth2 import service_account
+import streamlit as st
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"]
 )
+
+vertexai.init(
+    project="chatbot-ecom-494513",
+    location="us-central1",
+    credentials=credentials
+)
+
 model = GenerativeModel("gemini-2.5-flash")
 
 
